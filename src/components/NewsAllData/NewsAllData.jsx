@@ -4,27 +4,31 @@ const NewsAllData = ({ data }) => {
 	const { newsCategory, newsDescription, newsPreviewImage, newsTitle, _id } =
 		data;
 	return (
-		<Container className="my-4">
-			<Card>
-				<Card.Img variant="top" src={newsPreviewImage} alt="img-blur-shadow" />
-				<Card.Body>
-					<Card.Title>{newsTitle}</Card.Title>
-					<Card.Text>{newsDescription.slice(0, 120)}</Card.Text>
-				</Card.Body>
-				<Card.Footer>
-					<Container fluid>
-						<Row>
-							<Col>
+		<div className="container my-4">
+			<div className="card" style={{ width: "18rem" }}>
+				<img
+					src={newsPreviewImage}
+					className="card-img-top"
+					alt="img-blur-shadow"
+				/>
+				<div className="card-body">
+					<h3 className="card-title">{newsTitle}</h3>
+					<p className="card-text">{newsDescription.slice(0, 120)}</p>
+				</div>
+				<div className="card-footer">
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col">
 								<p className="text-capitalize fw-bold mb-0">Category:</p>
-							</Col>
-							<Col>
+							</div>
+							<div className="col">
 								<p className="text-capitalize">{newsCategory}</p>
-							</Col>
-						</Row>
-					</Container>
-				</Card.Footer>
-			</Card>
-		</Container>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 };
 
