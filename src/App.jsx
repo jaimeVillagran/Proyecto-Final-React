@@ -3,13 +3,13 @@ import NewsData from "./components/NewsData/NewsData";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
-function App() {
+const App = () => {
 	return (
-		<div className="App">
+		<div>
 			<NewsData />
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default App;

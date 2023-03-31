@@ -11,8 +11,8 @@ const Footer = styled.footer`
 function MyFooter() {
 	return (
 		<Footer>
-			<p>Este es mi footer</p>
 			<p>All Rights Reserved © 2023</p>
+			<p>Proyecto React - Jaime Villagran</p>
 		</Footer>
 	);
 }

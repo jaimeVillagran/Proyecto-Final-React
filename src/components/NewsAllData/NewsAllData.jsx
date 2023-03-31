@@ -4,8 +4,8 @@ const NewsAllData = ({ data }) => {
 	const { newsCategory, newsDescription, newsPreviewImage, newsTitle, _id } =
 		data;
 	return (
-		<div className="container my-4">
-			<div className="card" style={{ width: "18rem" }}>
+		<div className="container h-100">
+			<div className="card h-100">
 				<img
 					src={newsPreviewImage}
 					className="card-img-top"
