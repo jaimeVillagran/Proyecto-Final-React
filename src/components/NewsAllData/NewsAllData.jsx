@@ -8,12 +8,12 @@ const NewsAllData = ({ data }) => {
 			<div className="card h-100">
 				<img
 					src={newsPreviewImage}
-					className="card-img-top"
 					alt="img-blur-shadow"
+					className="card-img-top"
 				/>
 				<div className="card-body">
 					<h3 className="card-title">{newsTitle}</h3>
-					<p className="card-text">{newsDescription.slice(0, 120)}</p>
+					<p className="card-text">{newsDescription.slice(0, 220)}</p>
 				</div>
 				<div className="card-footer">
 					<div className="container-fluid">

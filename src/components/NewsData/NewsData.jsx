@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 import NewsAllData from "../NewsAllData/NewsAllData";
 import Loading from "../Loading/Loading";
-import logo from "../../assets/images/img_colored.svg";
 
 const NewsData = () => {
 	const [newsData, setNewsData] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [selectedCategory, setSelectedCategory] = useState("all");
+	const [searchTerm, setSearchTerm] = useState("");
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+		console.log("Selected category: ", selectedCategory);
+		console.log("Search term: ", searchTerm);
+	};
+
+	const handleCategoryChange = useCallback((e) => {
+		setSelectedCategory(e.target.value);
+	}, []);
 
 	useEffect(() => {
 		setLoading(true);
@@ -23,27 +34,54 @@ const NewsData = () => {
 			});
 	}, []);
 
-	console.log(newsData);
+	const categories = useMemo(
+		() => ["all", ...new Set(newsData.map((data) => data.newsCategory))],
+		[newsData]
+	);
 
 	return (
 		<div>
 			<div className="news__data__main py-8 lg:py-20">
 				<div className="d-flex align-items-center justify-content-center mb-4">
-					<img src={logo} alt="Logo" width="50" height="50" />
-					<h1 className="text-3x1 lg:text-left text-center lg:text-5x1 font-bold ms-3">
-						New Data
-					</h1>
+					<form className="d-flex" onSubmit={handleSearch} role="search">
+						<select
+							className="form-select me-2"
+							aria-label="Select a news category"
+							value={selectedCategory}
+							onChange={handleCategoryChange}>
+							{categories.map((category) => (
+								<option key={category} value={category}>
+									{category}
+								</option>
+							))}
+						</select>
+
+						<button className="btn btn-outline-success" type="submit">
+							Search
+						</button>
+					</form>
 				</div>
 				<div className="container py-4">
 					<div className="row row-cols-1 row-cols-lg-3 g-4">
 						{loading ? (
 							<Loading />
 						) : (
-							newsData.map((data) => (
-								<div className="col" key={data._id}>
-									<NewsAllData data={data} />
-								</div>
-							))
+							newsData
+								.filter(
+									(data) =>
+										selectedCategory === "all" ||
+										data.newsCategory === selectedCategory
+								)
+								.filter((data) =>
+									data.newsTitle
+										.toLowerCase()
+										.includes(searchTerm.toLowerCase())
+								)
+								.map((data) => (
+									<div className="col" key={data._id}>
+										<NewsAllData data={data} />
+									</div>
+								))
 						)}
 					</div>
 				</div>

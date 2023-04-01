@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Footer = styled.footer`
-	background-color: #333;
+	background-color: #58d68d;
 	color: #fff;
 	padding: 15px;
 	align-items: center;
@@ -12,7 +12,7 @@ function MyFooter() {
 	return (
 		<Footer>
 			<p>All Rights Reserved © 2023</p>
-			<p>Proyecto React - Jaime Villagran</p>
+			<p>Proyect React - Jaime Villagran</p>
 		</Footer>
 	);
 }
