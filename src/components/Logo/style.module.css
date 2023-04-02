@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+}
+.img {
+	height: 50px;
+	width: 50px;
+}
+.title {
+	font-size: 30px;
+	font-weight: 600;
+	padding-top: 5px;
+	padding-left: 15px;
+}

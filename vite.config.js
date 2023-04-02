@@ -12,9 +12,10 @@ export default defineConfig({
 	},
 	build: {
 		incremental: true,
+		babel: {
+			presets: ["@babel/presets-env", "@babel/presets-react"],
+		},
+		cache: true,
+		minify: true,
 	},
-	babel: {
-		presets: ["@babel/presets-env", "@babel / presets - react"],
-	},
-	cache: true,
 });

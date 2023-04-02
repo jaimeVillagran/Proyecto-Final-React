@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import s from "styled-components";
 
-const Footer = styled.footer`
+const Footer = s.footer`
 	background-color: #58d68d;
 	color: #fff;
 	padding: 15px;
