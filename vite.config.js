@@ -16,4 +16,5 @@ export default defineConfig({
 	babel: {
 		presets: ["@babel/presets-env", "@babel / presets - react"],
 	},
+	cache: true,
 });

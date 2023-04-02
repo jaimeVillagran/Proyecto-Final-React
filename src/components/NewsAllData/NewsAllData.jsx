@@ -12,8 +12,8 @@ const NewsAllData = ({ data }) => {
 					className="card-img-top"
 				/>
 				<div className="card-body">
-					<h3 className="card-title">{newsTitle}</h3>
-					<p className="card-text">{newsDescription.slice(0, 220)}</p>
+					<h2 className="card-title fs-4 fw-bolder">{newsTitle}</h2>
+					<p className="card-text fs-6">{newsDescription.slice(0, 220)}</p>
 				</div>
 				<div className="card-footer">
 					<div className="container-fluid">
