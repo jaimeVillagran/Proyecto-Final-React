@@ -17,5 +17,12 @@ export default defineConfig({
 		},
 		cache: true,
 		minify: true,
+		mode: "production",
+		chunks: true,
+		moduleBundling: true,
+		prerenderPaths: ["/"],
+		modulePreloader: true,
+		devCode: true,
+		debug: true,
 	},
 });
